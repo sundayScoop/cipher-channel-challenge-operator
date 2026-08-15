@@ -1,0 +1,1 @@
+# script for setting up environment on VM
