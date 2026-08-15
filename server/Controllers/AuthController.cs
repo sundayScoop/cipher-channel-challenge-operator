@@ -9,7 +9,7 @@ using server.Models;
 
 namespace server.Controllers;
 
-public class AuthController : Controller
+public class AuthController(IConfiguration config) : Controller
 {
     [AllowAnonymous]
     [HttpGet("/login")]
@@ -34,7 +34,7 @@ public class AuthController : Controller
         }
 
 
-        if (password != "a")
+        if (password != config["AdminPassword"])
         {
             ViewBag.Error = "Invalid password.";
             ViewBag.ReturnUrl = returnUrl;
