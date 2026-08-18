@@ -1,9 +1,11 @@
+using Docker.DotNet;
+
 public interface ITeamService
 {
     Team RegisterTeam(Team newTeam);
     Team FindTeam(string teamName);
 }
-public class TeamService : ITeamService
+public class TeamService(DockerClient dockerClient) : ITeamService
 {
     public Team RegisterTeam(Team newTeam)
     {
